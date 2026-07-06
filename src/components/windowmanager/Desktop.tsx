@@ -105,10 +105,11 @@ export const Desktop: React.FC = () => {
     <>
       {isLocked && <LockScreen onUnlock={() => setIsLocked(false)} />}
 
-      <div 
-        className={`desktop-environment ${hasOpenWindows ? 'has-open-windows' : ''}`}
-        style={{ backgroundImage: wallpaper.includes('gradient') ? 'none' : `url(${wallpaper})`, background: wallpaper.includes('gradient') ? wallpaper : 'none' }}
-      >
+      <div className={`desktop-environment ${hasOpenWindows ? 'has-open-windows' : ''}`}>
+        <div 
+          className="desktop-wallpaper-background"
+          style={{ backgroundImage: wallpaper.includes('gradient') ? 'none' : `url(${wallpaper})`, background: wallpaper.includes('gradient') ? wallpaper : 'none' }}
+        />
         <div className="desktop-wallpaper-overlay" />
         
         {/* Top Status Bar */}

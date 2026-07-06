@@ -79,7 +79,7 @@ interface WindowManagerContextType {
 }
 
 const DEFAULT_WINDOWS: WindowState[] = [
-  { id: 'dashboard', title: 'Dashboard', icon: '⚡', isOpen: true, isMinimized: false, isMaximized: false, x: 50, y: 50, width: 800, height: 500, zIndex: 10 },
+  { id: 'dashboard', title: 'Dashboard', icon: '⚡', isOpen: false, isMinimized: false, isMaximized: false, x: 50, y: 50, width: 800, height: 500, zIndex: 10 },
   { id: 'notes', title: 'Notebook', icon: '📝', isOpen: false, isMinimized: false, isMaximized: false, x: 80, y: 80, width: 750, height: 480, zIndex: 1 },
   { id: 'calendar', title: 'Calendar & Schedule', icon: '📅', isOpen: false, isMinimized: false, isMaximized: false, x: 100, y: 100, width: 800, height: 520, zIndex: 1 },
   { id: 'timetable', title: 'Timetable', icon: '🏫', isOpen: false, isMinimized: false, isMaximized: false, x: 120, y: 120, width: 700, height: 450, zIndex: 1 },

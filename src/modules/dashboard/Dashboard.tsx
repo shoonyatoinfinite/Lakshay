@@ -35,11 +35,7 @@ export const Dashboard: React.FC = () => {
   // Daily focus tasks state
   const [focusTasks, setFocusTasks] = useState<DailyFocus[]>(() => {
     const saved = localStorage.getItem('lakshya_daily_focus');
-    return saved ? JSON.parse(saved) : [
-      { id: '1', text: 'Revise active lectures', completed: false },
-      { id: '2', text: 'Log habits progress', completed: false },
-      { id: '3', text: '30 minutes reading block', completed: false }
-    ];
+    return saved ? JSON.parse(saved) : [];
   });
   const [newFocusText, setNewFocusText] = useState('');
 
