@@ -99,12 +99,14 @@ export const Desktop: React.FC = () => {
     }
   };
 
+  const hasOpenWindows = windows.some(w => w.isOpen && !w.isMinimized);
+
   return (
     <>
       {isLocked && <LockScreen onUnlock={() => setIsLocked(false)} />}
 
       <div 
-        className="desktop-environment" 
+        className={`desktop-environment ${hasOpenWindows ? 'has-open-windows' : ''}`}
         style={{ backgroundImage: wallpaper.includes('gradient') ? 'none' : `url(${wallpaper})`, background: wallpaper.includes('gradient') ? wallpaper : 'none' }}
       >
         <div className="desktop-wallpaper-overlay" />

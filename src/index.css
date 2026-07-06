@@ -59,41 +59,41 @@ body.theme-cyberpunk {
 }
 
 body.theme-academic-sepia {
-  --bg-color: #f4edd8;
-  --bg-gradient: linear-gradient(180deg, #faf6eb 0%, #e8dec4 100%);
-  --desktop-bg: #f4edd8;
-  --wallpaper-overlay: rgba(244, 237, 216, 0.1);
-  --glass-bg: rgba(253, 251, 247, 0.8);
+  --bg-color: #f7f3e8;
+  --bg-gradient: linear-gradient(180deg, #FAF7F0 0%, #EBE3D5 100%);
+  --desktop-bg: #f7f3e8;
+  --wallpaper-overlay: rgba(235, 227, 213, 0.15);
+  --glass-bg: rgba(253, 251, 247, 0.82);
   --glass-bg-hover: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(139, 94, 60, 0.15);
-  --glass-border-active: rgba(139, 94, 60, 0.5);
-  --glass-shadow: 0 8px 32px 0 rgba(139, 94, 60, 0.1);
-  --accent-color: #8b5e3c;
-  --accent-color-rgb: 139, 94, 60;
-  --accent-glow: 0 0 8px rgba(139, 94, 60, 0.2);
-  --accent-gradient: linear-gradient(135deg, #8b5e3c 0%, #c49a6c 100%);
-  --text-primary: #432e1b;
-  --text-secondary: #705335;
-  --text-muted: #9e8265;
+  --glass-border: rgba(162, 59, 60, 0.12);
+  --glass-border-active: rgba(162, 59, 60, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(45, 31, 20, 0.08);
+  --accent-color: #a23b3c;
+  --accent-color-rgb: 162, 59, 60;
+  --accent-glow: 0 0 10px rgba(162, 59, 60, 0.25);
+  --accent-gradient: linear-gradient(135deg, #a23b3c 0%, #d87a56 100%);
+  --text-primary: #2d1f14;
+  --text-secondary: #543d2b;
+  --text-muted: #8d735f;
 }
 
 body.theme-minimal-light {
-  --bg-color: #fafafa;
-  --bg-gradient: radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f0f0 100%);
-  --desktop-bg: #f5f5f7;
-  --wallpaper-overlay: rgba(255, 255, 255, 0.2);
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-bg-hover: rgba(255, 255, 255, 0.9);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --glass-border-active: rgba(0, 0, 0, 0.4);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-  --accent-color: #111111;
-  --accent-color-rgb: 17, 17, 17;
-  --accent-glow: 0 0 10px rgba(0, 0, 0, 0.1);
-  --accent-gradient: linear-gradient(135deg, #111 0%, #666 100%);
-  --text-primary: #111111;
-  --text-secondary: #666666;
-  --text-muted: #999999;
+  --bg-color: #fcfcfd;
+  --bg-gradient: radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f4f6 100%);
+  --desktop-bg: #f4f4f6;
+  --wallpaper-overlay: rgba(244, 244, 246, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg-hover: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 102, 204, 0.08);
+  --glass-border-active: rgba(0, 102, 204, 0.35);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
+  --accent-color: #0066cc;
+  --accent-color-rgb: 0, 102, 204;
+  --accent-glow: 0 0 10px rgba(0, 102, 204, 0.2);
+  --accent-gradient: linear-gradient(135deg, #0066cc 0%, #4f46e5 100%);
+  --text-primary: #1a1a1e;
+  --text-secondary: #4a4a52;
+  --text-muted: #8a8a93;
 }
 
 /* Global Reset */
@@ -321,12 +321,32 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   z-index: var(--z-index-window);
   animation: windowOpen 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, border-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, filter 0.3s ease, border-color 0.2s, box-shadow 0.2s;
 }
 
 .os-window.focused {
   border-color: var(--glass-border-active);
   animation: focusPulse 6s ease-in-out infinite alternate;
+}
+
+/* Dim & blur non-focused windows slightly to draw immediate focus to active work */
+.os-window:not(.focused) {
+  opacity: 0.75;
+  filter: saturate(90%) brightness(95%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* When windows are open, blur the desktop wallpaper overlay and widgets for readability */
+.desktop-environment.has-open-windows .desktop-wallpaper-overlay {
+  backdrop-filter: blur(10px) brightness(0.7);
+  -webkit-backdrop-filter: blur(10px) brightness(0.7);
+  transition: backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;
+}
+
+.desktop-environment.has-open-windows .widget-grid {
+  filter: blur(6px) opacity(0.25);
+  pointer-events: none;
+  transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
 @keyframes focusPulse {
@@ -1032,6 +1052,64 @@ h1, h2, h3, h4, h5, h6 {
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+/* Light & Sepia theme overrides for common widgets and components */
+body.theme-academic-sepia,
+body.theme-minimal-light {
+  /* Scrollbars */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Buttons */
+  .btn {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: var(--text-primary);
+  }
+  .btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+  }
+  
+  /* Inputs */
+  .input-field, .select-field, .textarea-field {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--text-primary);
+  }
+  .input-field:focus, .select-field:focus, .textarea-field:focus {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--accent-color);
+  }
+  
+  /* Titlebars */
+  .window-titlebar {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Dock and Launcher */
+  .dock-container {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .dock-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .launcher-search {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* SVG Charts */
+  .svg-grid-line {
+    stroke: rgba(0, 0, 0, 0.06);
+  }
+  .svg-axis-line {
+    stroke: rgba(0, 0, 0, 0.15);
   }
 }
 
