@@ -7,13 +7,13 @@
   --bg-color: #0b0c10;
   --bg-gradient: radial-gradient(circle at 50% 50%, #1a1c23 0%, #0b0c10 100%);
   --desktop-bg: #0b0c10;
-  --wallpaper-overlay: rgba(11, 12, 16, 0.4);
+  --wallpaper-overlay: rgba(0, 0, 0, 0.08);
 
-  --glass-bg: rgba(22, 24, 33, 0.65);
-  --glass-bg-hover: rgba(30, 33, 45, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-active: rgba(0, 195, 255, 0.35);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  --glass-bg: rgba(22, 24, 33, 0.22);
+  --glass-bg-hover: rgba(30, 33, 45, 0.32);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-active: rgba(0, 195, 255, 0.4);
+  --glass-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05) inset, inset 0 1px rgba(255, 255, 255, 0.12), inset 0 -1px rgba(0, 0, 0, 0.15);
 
   --text-primary: #f3f4f6;
   --text-secondary: #9ca3af;
@@ -46,10 +46,12 @@ body.theme-cyberpunk {
   --bg-color: #03001e;
   --bg-gradient: radial-gradient(circle at 50% 50%, #7303c0 0%, #ec38bc 50%, #03001e 100%);
   --desktop-bg: #03001e;
-  --wallpaper-overlay: rgba(3, 0, 30, 0.5);
-  --glass-bg: rgba(15, 4, 32, 0.7);
-  --glass-border: rgba(236, 56, 188, 0.2);
-  --glass-border-active: rgba(236, 56, 188, 0.8);
+  --wallpaper-overlay: rgba(0, 0, 0, 0.12);
+  --glass-bg: rgba(15, 4, 32, 0.25);
+  --glass-bg-hover: rgba(25, 10, 48, 0.35);
+  --glass-border: rgba(236, 56, 188, 0.22);
+  --glass-border-active: rgba(236, 56, 188, 0.7);
+  --glass-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05) inset, inset 0 1px rgba(255, 255, 255, 0.15), inset 0 -1px rgba(0, 0, 0, 0.2);
   --accent-color: #ec38bc;
   --accent-color-rgb: 236, 56, 188;
   --accent-glow: 0 0 15px rgba(236, 56, 188, 0.6);
@@ -62,12 +64,12 @@ body.theme-academic-sepia {
   --bg-color: #f7f3e8;
   --bg-gradient: linear-gradient(180deg, #FAF7F0 0%, #EBE3D5 100%);
   --desktop-bg: #f7f3e8;
-  --wallpaper-overlay: rgba(235, 227, 213, 0.15);
-  --glass-bg: #fdfbf7;
-  --glass-bg-hover: #ffffff;
-  --glass-border: rgba(162, 59, 60, 0.12);
+  --wallpaper-overlay: rgba(0, 0, 0, 0.05);
+  --glass-bg: rgba(253, 251, 247, 0.65);
+  --glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(162, 59, 60, 0.15);
   --glass-border-active: rgba(162, 59, 60, 0.4);
-  --glass-shadow: 0 12px 40px rgba(45, 31, 20, 0.12);
+  --glass-shadow: 0 20px 45px rgba(45, 31, 20, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2) inset, inset 0 1px rgba(255, 255, 255, 0.3), inset 0 -1px rgba(45, 31, 20, 0.1);
   --accent-color: #a23b3c;
   --accent-color-rgb: 162, 59, 60;
   --accent-glow: 0 0 10px rgba(162, 59, 60, 0.25);
@@ -81,12 +83,12 @@ body.theme-minimal-light {
   --bg-color: #fcfcfd;
   --bg-gradient: radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f4f6 100%);
   --desktop-bg: #f4f4f6;
-  --wallpaper-overlay: rgba(244, 244, 246, 0.1);
-  --glass-bg: #ffffff;
-  --glass-bg-hover: #fafafa;
-  --glass-border: rgba(0, 102, 204, 0.08);
-  --glass-border-active: rgba(0, 102, 204, 0.35);
-  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --wallpaper-overlay: rgba(0, 0, 0, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 102, 204, 0.12);
+  --glass-border-active: rgba(0, 102, 204, 0.4);
+  --glass-shadow: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.3) inset, inset 0 1px rgba(255, 255, 255, 0.4), inset 0 -1px rgba(0, 0, 0, 0.08);
   --accent-color: #0066cc;
   --accent-color-rgb: 0, 102, 204;
   --accent-glow: 0 0 10px rgba(0, 102, 204, 0.2);
@@ -192,8 +194,8 @@ h6 {
   width: 100%;
   height: 40px;
   background: var(--glass-bg);
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border-bottom: 1px solid var(--glass-border);
   display: flex;
   justify-content: space-between;
@@ -258,8 +260,8 @@ h6 {
 
 .widget-item {
   background: var(--glass-bg);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 15px;
@@ -297,8 +299,8 @@ h6 {
   height: 60px;
   border-radius: 14px;
   background: var(--glass-bg);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
@@ -332,8 +334,8 @@ h6 {
 .os-window {
   position: absolute;
   background: var(--glass-bg);
-  backdrop-filter: blur(80px) saturate(180%);
-  -webkit-backdrop-filter: blur(50px) saturate(180%);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   box-shadow: var(--glass-shadow);
@@ -350,18 +352,17 @@ h6 {
   animation: focusPulse 6s ease-in-out infinite alternate;
 }
 
-/* Dim & blur non-focused windows slightly to draw immediate focus to active work */
+/* Keep inactive windows clean and legible (Mac-like unfocused style) */
 .os-window:not(.focused) {
-  opacity: 0.75;
-  filter: saturate(90%) brightness(95%);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0.92;
+  filter: saturate(75%) brightness(90%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* When windows are open, apply a standard CSS filter blur directly to the wallpaper background image */
+/* Keep wallpaper 100% sharp at all times */
 .desktop-environment.has-open-windows .desktop-wallpaper-background {
-  filter: blur(80px) brightness(0.2);
-  transform: scale(1.08);
-  /* slightly scales up to hide blur edge artifacts at viewport boundaries */
+  filter: none;
+  transform: none;
 }
 
 .desktop-environment.has-open-windows .widget-grid {
@@ -387,7 +388,7 @@ h6 {
 
 .window-titlebar {
   height: 38px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
@@ -487,9 +488,9 @@ h6 {
   left: 50%;
   transform: translateX(-50%);
   height: 52px;
-  background: rgba(22, 24, 33, 0.5);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 0 10px;
@@ -554,11 +555,11 @@ h6 {
 .launcher-window {
   width: 600px;
   background: var(--glass-bg);
-  backdrop-filter: blur(55px) saturate(180%);
-  -webkit-backdrop-filter: blur(55px) saturate(180%);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--glass-shadow);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -648,6 +649,8 @@ h6 {
 /* UI Elements & Controls */
 .glass-panel {
   background: var(--glass-bg);
+  backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08) contrast(1.05);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 20px;
