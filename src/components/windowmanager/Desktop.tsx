@@ -89,6 +89,7 @@ export const Desktop: React.FC = () => {
         return <CareerHub />;
       case 'projects':
         return <ProjectManager />;
+      case 'draw':
       case 'paint':
         return <PaintBoard />;
       case 'settings':

@@ -107,12 +107,21 @@ export const WindowManagerProvider: React.FC<{ children: React.ReactNode }> = ({
     if (saved) {
       try {
         let parsed = JSON.parse(saved) as WindowState[];
-        // Migrate assignments icon
-        parsed = parsed.map(w => w.id === 'assignments' && w.icon === '✏️' ? { ...w, icon: '📋' } : w);
-        // Add paint window if it's missing
-        if (!parsed.some(w => w.id === 'paint')) {
-          parsed.push({ id: 'paint', title: 'Paint & Draw', icon: '✏️', isOpen: false, isMinimized: false, isMaximized: false, x: 170, y: 110, width: 800, height: 550, zIndex: 1 });
-        }
+        
+        // Migrate legacy 'draw' ID to 'paint'
+        parsed = parsed.map(w => w.id === 'draw' ? { ...w, id: 'paint', title: 'Paint & Draw', icon: '✏️' } : w);
+        
+        // Sync with DEFAULT_WINDOWS to restore any missing apps and update icons/titles
+        DEFAULT_WINDOWS.forEach(defWin => {
+          const index = parsed.findIndex(w => w.id === defWin.id);
+          if (index === -1) {
+            parsed.push({ ...defWin, isOpen: false });
+          } else {
+            parsed[index].title = defWin.title;
+            parsed[index].icon = defWin.icon;
+          }
+        });
+
         return parsed;
       } catch (e) {
         return DEFAULT_WINDOWS;
